@@ -1,44 +1,37 @@
-import {
-    addNoteHandler,
-    getAllNotesHandler,
-    getNoteByIdHandler,
-    editNoteByIdHandler,
-    deleteNoteByIdHandler
-} from "./handler.js";
+const {
+  addBooksHandler,
+  showAllBooksHandler,
+  getBooksByIdHandler,
+  editBooksByIdHandler,
+  deleteBooksByIdHandler,
+} = require('./handler');
 
 const routes = [
-    {
-        method: 'GET',
-        path: '/',
-        handler: (request, h) => {
-            return 'Homepage!';
-        }
-    },
-    {
-        method: 'GET',
-        path: '/notes',
-        handler: getAllNotesHandler
-    },
-    {
-        method: 'GET',
-        path: '/notes/{id}',
-        handler: getNoteByIdHandler
-    },
-    {
-        method: 'PUT',
-        path: '/notes/{id}',
-        handler: editNoteByIdHandler
-    },
-    {
-        method: 'DELETE',
-        path: '/notes/{id}',
-        handler: deleteNoteByIdHandler
-    },
-    {
-        method: 'POST',
-        path: '/notes',
-        handler: addNoteHandler
-    }
+  {
+    method: 'POST',
+    path: '/books',
+    handler: addBooksHandler,
+  },
+  {
+    method: 'GET',
+    path: '/books',
+    handler: showAllBooksHandler,
+  },
+  {
+    method: 'GET',
+    path: '/books/{bookId}',
+    handler: getBooksByIdHandler,
+  },
+  {
+    method: 'PUT',
+    path: '/books/{bookId}',
+    handler: editBooksByIdHandler,
+  },
+  {
+    method: 'DELETE',
+    path: '/books/{bookId}',
+    handler: deleteBooksByIdHandler,
+  },
 ];
 
-export { routes };
+module.exports = routes;
